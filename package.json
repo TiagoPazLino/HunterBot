@@ -1,0 +1,18 @@
+{
+  "name": "hunterbot",
+  "version": "1.0.0",
+  "description": "O bot pra substituir o Hunter :3",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HunterBot",
+    "Hunter"
+  ],
+  "author": "Tiago Paz",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}

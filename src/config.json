@@ -1,0 +1,20 @@
+{
+    "disc_token": "NzUxNDMzNDMyMDE3NDAzOTU1.X1JA6w._mnOjts8U5o7mH0deJaYAkvq06I",
+    "nao":["NÃO", "N ", " N ", "Ñ ", " Ñ "],
+    "respostasChamado": [
+        ["Eu", "Oie :3", "Diga"],
+        ["Quié","Fala","O que você quer?"],
+        ["OIEEE", "Eae", "Fala :3", "Sou eu :3"]
+    ],
+    "comoVai": [
+        ["Ah, até que legalzinho", "Vou indo"], 
+        ["Mal", "Não é da sua conta"],
+        ["Vou bem, e vc?", "Bem, y usted?"]
+    ],
+    "canalCriado": [
+        ["Ok, canal criado", "Feito"],
+        ["Toma essa merda"],
+        ["Claro, feito :3"]
+    ]
+    
+}
