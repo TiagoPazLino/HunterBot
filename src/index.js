@@ -35,18 +35,21 @@ client.on("message", (mensagem) => {
     }
 
     if (textoMensagem.includes("CRIE") || textoMensagem.includes("CRIA") || textoMensagem.includes("FAZ") || textoMensagem.includes("FAÇA")) {
-       criarCanalTexto(mensagem);
+        criarCanalTexto(mensagem);
     }
+
+    if (textoMensagem.includes("DELETE") || textoMensagem.includes("DELETA") || textoMensagem.includes("REMOVA") || textoMensagem.includes("REMOVE")) {
+        removerCanalTexto(mensagem);
+     }
 
 });
 
-function criarCanalTexto(mensagem){
+function criarCanalTexto(mensagem) {
     textoMensagem = mensagem.content.toUpperCase();
     if (possuiNao(textoMensagem)) {
-        mensagem.reply("Ok... não faço então :/");
+        mensagem.reply(mensagemComHumor(humor, config.respostasNao));
         return;
     }
-    console.log(possuiNao(textoMensagem));
     if (textoMensagem.includes("CANAL")) {
         let nomeCanal = extrairParametro("nome", mensagem.content);
         mensagem.guild.channels.create(nomeCanal)
@@ -54,15 +57,31 @@ function criarCanalTexto(mensagem){
     }
 }
 
-function possuiNao(texto){
-    console.log(texto)
-    if(texto.includes("NÃO") || texto.includes(" N ") ||  texto.includes(" Ñ ")){
+function removerCanalTexto(mensagem) {
+    textoMensagem = mensagem.content.toUpperCase();
+    if (possuiNao(textoMensagem)) {
+        mensagem.reply(mensagemComHumor(humor, config.respostasNao));
+        return;
+    }
+    if (textoMensagem.includes("CANAL")) {
+        let nomeCanal = extrairParametro("nome", mensagem.content);
+        mensagem.guild.
+        console.log(mensagem.channel);
+    }
+}
+
+function possuiNao(texto) {
+    if(texto.includes("NÃO") || texto.includes(" N ") ||  texto.includes(" Ñ ")) {
         return true;
     }
     return false;
 }
 
-function extrairParametro(identificador, mensagem){
+function procuraCanalPorNome(){
+    
+}
+
+function extrairParametro(identificador, mensagem) {
     return mensagem.substr(mensagem.indexOf(identificador) + identificador.length);
 }
 

@@ -15,6 +15,11 @@
         ["Ok, canal criado", "Feito"],
         ["Toma essa merda"],
         ["Claro, feito :3"]
+    ],
+    "respostasNao": [
+        ["Ok... não faço :/"],
+        ["Então não precisa me pedir uai"],
+        ["Belezinha"]
     ]
     
 }
