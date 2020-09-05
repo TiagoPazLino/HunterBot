@@ -13,7 +13,7 @@ const Humor = {
     FELIZ: 2
 }
 
-humor = Humor.FELIZ;
+humor = Humor.MAL;
 
 client.on("message", (mensagem) => {
 
@@ -64,9 +64,9 @@ function removerCanalTexto(mensagem) {
         return;
     }
     if (textoMensagem.includes("CANAL")) {
-        let nomeCanal = extrairParametro("nome", mensagem.content);
-        mensagem.guild.
-        console.log(mensagem.channel);
+        let nomeCanal = extrairParametro("nome", mensagem.content).trim();
+        SearchChannelName(nomeCanal, mensagem).delete()
+            .then(mensagem.reply(mensagemComHumor(humor, config.canalDeletado)));
     }
 }
 
@@ -77,10 +77,6 @@ function possuiNao(texto) {
     return false;
 }
 
-function procuraCanalPorNome(){
-    
-}
-
 function extrairParametro(identificador, mensagem) {
     return mensagem.substr(mensagem.indexOf(identificador) + identificador.length);
 }
@@ -89,16 +85,10 @@ function mensagemComHumor(humorParam, arrayMensagem) {
     return arrayMensagem[humorParam][Math.round(Math.random() * 10) % arrayMensagem[humorParam].length]
 }
 
-
-
-function SearchChannelName(mess) {
-
-
-	if (typeof (this.mess) == Discord.Message) return mess.Guild;
-	Console.error("The given name is not from a channel");
-
-} 
+function SearchChannelName(nome, mensagem) {
+    return mensagem.guild.channels.cache.find((canal) => {
+        return canal.name === nome;
+    });
+}
 
 client.login(config.disc_token);
-
-

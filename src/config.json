@@ -3,18 +3,23 @@
     "nao":["NÃO", "N ", " N ", "Ñ ", " Ñ "],
     "respostasChamado": [
         ["Eu", "Oie :3", "Diga"],
-        ["Quié","Fala","O que você quer?"],
+        ["Quié","O que?", "O que você quer?"],
         ["OIEEE", "Eae", "Fala :3", "Sou eu :3"]
     ],
     "comoVai": [
         ["Ah, até que legalzinho", "Vou indo"], 
-        ["Mal", "Não é da sua conta"],
-        ["Vou bem, e vc?", "Bem, y usted?"]
+        ["Mal", "Não é da sua conta", "Não te importa"],
+        ["Vou bem, e vc?", "Bem, y usted?", "Melhor impossível <3"]
     ],
     "canalCriado": [
         ["Ok, canal criado", "Feito"],
         ["Toma essa merda"],
         ["Claro, feito :3"]
+    ],
+    "canalDeletado": [
+        ["Ok, canal deletado", "Feito"],
+        ["Não deveria ter criado então pra começo de conversa"],
+        ["Claro, feito (ou desfeito, n sei) :3"]
     ],
     "respostasNao": [
         ["Ok... não faço :/"],
