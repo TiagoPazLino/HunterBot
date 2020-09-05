@@ -89,4 +89,16 @@ function mensagemComHumor(humorParam, arrayMensagem) {
     return arrayMensagem[humorParam][Math.round(Math.random() * 10) % arrayMensagem[humorParam].length]
 }
 
+
+
+function SearchChannelName(mess) {
+
+
+	if (typeof (this.mess) == Discord.Message) return mess.Guild;
+	Console.error("The given name is not from a channel");
+
+} 
+
 client.login(config.disc_token);
+
+
