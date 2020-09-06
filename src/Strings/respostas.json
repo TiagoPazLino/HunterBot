@@ -1,12 +1,10 @@
 {
-    "disc_token": "NzUxNDMzNDMyMDE3NDAzOTU1.X1JA6w._mnOjts8U5o7mH0deJaYAkvq06I",
-    "nao":["NÃO", "N ", " N ", "Ñ ", " Ñ "],
-    "respostasChamado": [
+    "aguardando": [
         ["Eu", "Oie :3", "Diga"],
         ["Quié","O que?", "O que você quer?"],
         ["OIEEE", "Eae", "Fala :3", "Sou eu :3"]
     ],
-    "comoVai": [
+    "estadoHumor": [
         ["Ah, até que legalzinho", "Vou indo"], 
         ["Mal", "Não é da sua conta", "Não te importa"],
         ["Vou bem, e vc?", "Bem, y usted?", "Melhor impossível <3"]
@@ -26,5 +24,4 @@
         ["Então não precisa me pedir uai"],
         ["Belezinha"]
     ]
-    
 }

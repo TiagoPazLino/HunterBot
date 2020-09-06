@@ -1,0 +1,20 @@
+{
+    "nao": [
+        "NÃO", "N ", " N ", "Ñ ", " Ñ "
+    ],
+    "criar": [
+        "CRIE", "FAÇA", "FAZ", "CRIA"
+    ],
+    "excluir": [
+        "DELETE", "REMOVA", "REMOVE", "DESTRUA", "ANIQUILE", "DELETA", "ANIQUILA", "DESTRÓI"
+    ],
+    "comoVai": [
+        "COMO VAI?", "COMO ESTÁ?", "E AÍ?", "EAÍ?", "EAE"
+    ],
+    "canal": [
+        "CANAL"
+    ],
+    "parametros": [
+        "NOME"
+    ]
+}

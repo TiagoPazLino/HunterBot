@@ -1,5 +1,7 @@
 const Discord = require("../node_modules/discord.js");
-const config = require("./config.json");
+const config = require("./Strings/config.json");
+const comandos = require("./Strings/comandos.json");
+const respostas = require("./Strings/respostas.json")
 
 const client = new Discord.Client();
 
@@ -13,7 +15,7 @@ const Humor = {
     FELIZ: 2
 }
 
-humor = Humor.MAL;
+humor = Humor.INDIFERENTE;
 
 client.on("message", (mensagem) => {
 
@@ -21,7 +23,7 @@ client.on("message", (mensagem) => {
         return;
     
     if (mensagem.content === handler) {
-        mensagem.reply(mensagemComHumor(humor, config.respostasChamado));
+        mensagem.reply(mensagemComHumor(humor, respostas.aguardando));
         usuariosEsperando.push(mensagem.author);
         return;
     } else if (usuariosEsperando.includes(mensagem.author)) {
@@ -30,51 +32,48 @@ client.on("message", (mensagem) => {
 
     textoMensagem = mensagem.content.toUpperCase();
 
-    if (textoMensagem.includes("COMO VAI?") || textoMensagem.includes("COMO ESTÁ?")) {
-        mensagem.reply(mensagemComHumor(humor, config.comoVai));
+    if (procuraComando(mensagem, comandos.comoVai)) {
+        mensagem.reply(mensagemComHumor(humor, respostas.estadoHumor));
     }
 
-    if (textoMensagem.includes("CRIE") || textoMensagem.includes("CRIA") || textoMensagem.includes("FAZ") || textoMensagem.includes("FAÇA")) {
+    if (procuraComando(mensagem, comandos.criar)) {
         criarCanalTexto(mensagem);
     }
-
-    if (textoMensagem.includes("DELETE") || textoMensagem.includes("DELETA") || textoMensagem.includes("REMOVA") || textoMensagem.includes("REMOVE")) {
+    
+    if (procuraComando(mensagem, comandos.excluir)) {
         removerCanalTexto(mensagem);
-     }
-
+    }
+    
 });
 
-function criarCanalTexto(mensagem) {
-    textoMensagem = mensagem.content.toUpperCase();
-    if (possuiNao(textoMensagem)) {
-        mensagem.reply(mensagemComHumor(humor, config.respostasNao));
-        return;
+function responderCasoNao(mensagem){
+    if (possuiNao(mensagem)) {
+        mensagem.reply(mensagemComHumor(humor, respostas.respostasNao));
+        return true;
     }
-    if (textoMensagem.includes("CANAL")) {
+    return false;
+}
+
+function criarCanalTexto(mensagem) {
+    if (responderCasoNao(mensagem)) return;
+    if (procuraComando(mensagem, comandos.canal)) {
         let nomeCanal = extrairParametro("nome", mensagem.content);
         mensagem.guild.channels.create(nomeCanal)
-            .then(mensagem.reply(mensagemComHumor(humor, config.canalCriado)))
+            .then(mensagem.reply(mensagemComHumor(humor, respostas.canalCriado)))
     }
 }
 
 function removerCanalTexto(mensagem) {
-    textoMensagem = mensagem.content.toUpperCase();
-    if (possuiNao(textoMensagem)) {
-        mensagem.reply(mensagemComHumor(humor, config.respostasNao));
-        return;
-    }
-    if (textoMensagem.includes("CANAL")) {
+    if (responderCasoNao(mensagem)) return;
+    if (procuraComando(mensagem, comandos.canal)) {
         let nomeCanal = extrairParametro("nome", mensagem.content).trim();
-        SearchChannelName(nomeCanal, mensagem).delete()
-            .then(mensagem.reply(mensagemComHumor(humor, config.canalDeletado)));
+        searchChannelName(nomeCanal, mensagem).delete()
+            .then(mensagem.reply(mensagemComHumor(humor, respostas.canalDeletado)));
     }
 }
 
 function possuiNao(texto) {
-    if(texto.includes("NÃO") || texto.includes(" N ") ||  texto.includes(" Ñ ")) {
-        return true;
-    }
-    return false;
+    return procuraComando(texto, comandos.nao);
 }
 
 function extrairParametro(identificador, mensagem) {
@@ -85,10 +84,21 @@ function mensagemComHumor(humorParam, arrayMensagem) {
     return arrayMensagem[humorParam][Math.round(Math.random() * 10) % arrayMensagem[humorParam].length]
 }
 
-function SearchChannelName(nome, mensagem) {
+function searchChannelName(nome, mensagem) {
     return mensagem.guild.channels.cache.find((canal) => {
         return canal.name === nome;
     });
+}
+
+function procuraComando(mensagem, tipoComando) {
+    possuiComando = false;
+    textoMensagem = mensagem.content.toUpperCase();
+    tipoComando.forEach((comando) => {
+        if (textoMensagem.includes(comando)) {
+            possuiComando = true;
+        }
+    });
+    return possuiComando;
 }
 
 client.login(config.disc_token);
