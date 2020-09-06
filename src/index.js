@@ -40,12 +40,14 @@ client.on("message", (mensagem) => {
         mensagem.reply(mensagemComHumor(humor, respostas.estadoHumor));
     }
 
-    if (procuraComando(mensagem, comandos.criar)) {
-        criarCanalTexto(mensagem);
-    }
-    
-    if (procuraComando(mensagem, comandos.excluir)) {
-        removerCanalTexto(mensagem);
+    if (mensagem.channel.type != 'dm'){
+        if (procuraComando(mensagem, comandos.criar)) {
+            criarCanalTexto(mensagem);
+        }
+        
+        if (procuraComando(mensagem, comandos.excluir)) {
+            removerCanalTexto(mensagem);
+        }
     }
     
 });
