@@ -1,4 +1,5 @@
-import { criarCanalTexto, removerCanalTexto} from "./functionCanal";
+import { criarCanalTexto, removerCanalTexto } from "./functionCanal";
+import { criarEmoji, deletarEmoji } from "./functionEmoji";
 import { procuraComando } from "./comandoUtils";
 import { mensagemComHumor } from "./mensagemUtils";
 
@@ -41,15 +42,30 @@ client.on("message", (mensagem) => {
     }
 
     if (mensagem.channel.type != 'dm'){
+        if (responderCasoNao(mensagem)) return;
         if (procuraComando(mensagem, comandos.criar)) {
             criarCanalTexto(mensagem);
+            criarEmoji(mensagem);
         }
         
         if (procuraComando(mensagem, comandos.excluir)) {
             removerCanalTexto(mensagem);
+            deletarEmoji(mensagem);
         }
     }
     
 });
+
+function possuiNao(texto) {
+    return procuraComando(texto, comandos.nao);
+}
+
+function responderCasoNao(mensagem){
+    if (possuiNao(mensagem)) {
+        mensagem.reply(mensagemComHumor(humor, respostas.respostasNao));
+        return true;
+    }
+    return false;
+}
 
 client.login(config.disc_token);

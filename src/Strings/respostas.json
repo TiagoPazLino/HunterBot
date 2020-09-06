@@ -19,9 +19,24 @@
         ["Não deveria ter criado então pra começo de conversa"],
         ["Claro, feito (ou desfeito, n sei) :3"]
     ],
+    "emojiCriado": [
+        ["Ok, emoji criado", "Feito"],
+        ["Pronto, isso existe agora"],
+        ["Prontinho :3"]
+    ],
+    "emojiDeletado": [
+        ["Ok, emoji deletado", "Feito"],
+        ["Pronto, essa droga não existe mais"],
+        ["Triste ver um emoji morrer :c"]
+    ],
     "respostasNao": [
         ["Ok... não faço :/"],
         ["Então não precisa me pedir uai"],
         ["Belezinha"]
+    ],
+    "erros": [
+        ["Deu ruim", "Deu não"],
+        ["Faria se eu conseguisse, mas aparentemente não dá"],
+        ["Deu algum erro aqui :/"]
     ]
 }

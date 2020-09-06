@@ -9,12 +9,15 @@
         "DELETE", "REMOVA", "REMOVE", "DESTRUA", "ANIQUILE", "DELETA", "ANIQUILA", "DESTRÓI"
     ],
     "comoVai": [
-        "COMO VAI?", "COMO ESTÁ?", "E AÍ?", "EAÍ?", "EAE"
+        "COMO VAI?", "COMO ESTÁ?", "E AÍ?", "EAÍ", "EAE"
     ],
     "canal": [
         "CANAL"
     ],
+    "emoji": [
+        "EMOJI", "EMOTE", "STICKER"
+    ],
     "parametros": [
-        "NOME"
+        "NOME", "CANAL", "EMOJI", "CATEGORIA"
     ]
 }
