@@ -1,13 +1,18 @@
 {
     "aguardando": [
-        ["Eu", "Oie :3", "Diga"],
+        ["Eu", "Eae", "Oie :3", "Diga"],
         ["Quié","O que?", "O que você quer?"],
-        ["OIEEE", "Eae", "Fala :3", "Sou eu :3"]
+        ["OIEEE", "Fala :3", "Sou eu :3"]
     ],
     "estadoHumor": [
         ["Ah, até que legalzinho", "Vou indo"], 
         ["Mal", "Não é da sua conta", "Não te importa"],
         ["Vou bem, e vc?", "Bem, y usted?", "Melhor impossível <3"]
+    ],
+    "amar": [
+        [";w;", "<3", "Obrigado :3"],
+        ["Pena que não é recíproco", "-w-'", "Bateu a carência, foi?"],
+        ["Também te amo <3", "Eu também :3"]
     ],
     "canalCriado": [
         ["Ok, canal criado", "Feito"],

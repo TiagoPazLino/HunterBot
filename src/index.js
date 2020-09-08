@@ -41,6 +41,10 @@ client.on("message", (mensagem) => {
         mensagem.reply(mensagemComHumor(humor, respostas.estadoHumor));
     }
 
+    if (procuraComando(mensagem, comandos.amar)) {
+        mensagem.reply(mensagemComHumor(humor, respostas.amar));
+    }
+
     if (mensagem.channel.type != 'dm'){
         if (responderCasoNao(mensagem)) return;
         if (procuraComando(mensagem, comandos.criar)) {
