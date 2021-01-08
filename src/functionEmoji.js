@@ -9,7 +9,7 @@ const respostas = require("./Strings/respostas.json");
 
 export function criarEmoji(mensagem){
     if (procuraComando(mensagem, comandos.emoji)) {
-        let nomeEmoji = extrairParametro("nome", mensagem.content);
+        let nomeEmoji = extrairParametro(comandos.parametros.NOME.valueOf, mensagem.content);
         mensagem.attachments.forEach((attachment) => {
             mensagem.guild.emojis.create(attachment.proxyURL, nomeEmoji)
                 .then(() => {
@@ -23,7 +23,7 @@ export function criarEmoji(mensagem){
 
 export function deletarEmoji(mensagem){
     if (procuraComando(mensagem, comandos.emoji)) {
-        let nomeEmoji = extrairParametro("nome", mensagem.content);
+        let nomeEmoji = extrairParametro(comandos.parametros.NOME.valueOf(), mensagem.content);
         mensagem.guild.emojis.cache.find(emoji => emoji.name == nomeEmoji).delete()
             .then(() => mensagem.reply(mensagemComHumor(humor, respostas.emojiDeletado)))
             .catch(() => mensagem.reply(mensagemComHumor(humor, respostas.erros)));

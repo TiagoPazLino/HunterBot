@@ -8,7 +8,7 @@ const respostas = require("./Strings/respostas.json");
 
 function criarCanalTexto(mensagem) {
     if (procuraComando(mensagem, comandos.canal)) {
-        let nomeCanal = extrairParametro("nome", mensagem.content);
+        let nomeCanal = extrairParametro(comandos.parametros.NOME.valueOf(), mensagem.content);
         mensagem.guild.channels.create(nomeCanal)
             .then(() => mensagem.reply(mensagemComHumor(humor, respostas.canalCriado)))
             .catch(() => mensagem.reply(mensagemComHumor(humor, respostas.erros)));
@@ -17,7 +17,7 @@ function criarCanalTexto(mensagem) {
 
 function removerCanalTexto(mensagem) {
     if (procuraComando(mensagem, comandos.canal)) {
-        let nomeCanal = extrairParametro("nome", mensagem.content).trim();
+        let nomeCanal = extrairParametro(comandos.parametros.NOME.valueOf(), mensagem.content).trim();
         searchChannelName(nomeCanal, mensagem).delete()
             .then(() => mensagem.reply(mensagemComHumor(humor, respostas.canalDeletado)))
             .catch(() => mensagem.reply(mensagemComHumor(humor, respostas.erros)));
